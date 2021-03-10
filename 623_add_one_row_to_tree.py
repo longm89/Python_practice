@@ -32,6 +32,9 @@ class Solution:
         If d = 1, add the root to the tree
         If d > 1, find all the nodes at depth d - 1 using BFS, create two nodes
         and add the original left and right subtrees of the node.
+        There are 2n edges in a tree with n nodes,
+        the time complexity is O(n)
+        the space complexity is O(n)
         """
         if d == 1:
             new_node = TreeNode(v, root, None)
