@@ -36,7 +36,7 @@ Constraints:
 
 
 class Solution:
-    def coinChange(self, coins: List[int], amount: int) -> int:
+    def coinChange(self, coins, amount: int) -> int:
         """
         Let min_coins[i] be the min number of coins needed to achieve amount i,
         We have len(min_coins) <= amount + 1
@@ -47,7 +47,7 @@ class Solution:
                 if total-coin >= 0:
                     min_coins[total] = min(min_coins[total],
                                            min_coins[total - coin] + 1)
-    
+   
         The time complexity is O(amount * len(coins))
         The space complexity is O(amount)
         """
