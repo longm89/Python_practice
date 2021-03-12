@@ -39,6 +39,7 @@ class Solution:
         if d == 1:
             new_node = TreeNode(v, root, None)
             return new_node
+
         if d > 1:
             # add the node and the depth of the node to the queue
             queue = [(root, 1)]
@@ -60,4 +61,5 @@ class Solution:
                     right_child = TreeNode(v, None, current_node.right)
                     current_node.left = left_child
                     current_node.right = right_child
+                    
         return root

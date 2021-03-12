@@ -36,7 +36,7 @@ class Solution:
         Given a position start,
         the longest substring s[start], s[start + 1],..., s[stop] will
         be such that stop+1 == len(s) or s[stop + 1] in
-        current_set = {s[start], s[start+1],...,s[stop]}
+        the current_set = {s[start], s[start+1],...,s[stop]}
 
         Hence, given a start position with a stop position,
         for start+1, the next_stop position will be farther away from
@@ -44,7 +44,7 @@ class Solution:
         s[next_stop + 1] is in
         (current_set minus s[start]) union s[stop+1],...s[next_stop]
        
-        We could use Set to check if an element is in a Set, or to delete an
+        We could use a Set to check if an element is in a Set, or to delete an
         element, the complexity for both operations is O(1)
         The time complexity is O(len(s))
         The space complexity is O(len(s))
@@ -52,6 +52,7 @@ class Solution:
 
         if len(s) == 0:
             return 0
+
         # The first case when start = 0
         stop = 0
         current_set = {s[0]}
@@ -59,6 +60,7 @@ class Solution:
             stop += 1
             current_set.add(s[stop])
         max_length = len(current_set)
+
         # The case for start = 2,3,4,..., len(s) - 1
         for start in range(1, len(s)):
             next_stop = stop
@@ -70,5 +72,6 @@ class Solution:
             if max_length < next_stop-start+1:
                 max_length = next_stop-start+1
             stop = next_stop
+            
         return max_length
             

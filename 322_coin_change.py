@@ -54,12 +54,14 @@ class Solution:
         # initialize
         min_coins = [10**5 for i in range(amount + 1)]
         min_coins[0] = 0
-
+        
+        # calculate min_coins[total] for total >= 1
         for total in range(1, amount + 1):
             for coin in coins:
                 if total-coin >= 0:
                     min_coins[total] = min(min_coins[total],
                                            min_coins[total - coin] + 1)
+                                           
         if min_coins[amount] != 10**5:
             return min_coins[amount]
         else:
