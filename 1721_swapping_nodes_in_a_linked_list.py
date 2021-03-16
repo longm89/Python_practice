@@ -99,24 +99,31 @@ class Solution:
         # deal with the cases 1), 2), 3)
         if pos_node1 == pos_node2:
             return head
-        
+
         if pos_node1 > pos_node2:
-            pos_prev1, pos_node1, pos_prev2, pos_node2 = pos_prev2,\
-                pos_node2, pos_prev1, pos_node1
+            pos_prev1, pos_node1, pos_prev2, pos_node2 = (
+                pos_prev2,
+                pos_node2,
+                pos_prev1,
+                pos_node1,
+            )
             prev1, node1, prev2, node2 = prev2, node2, prev1, node1
         # deal with the 4 cases 1) and 2)
         if pos_prev1 == 0:
             if pos_node1 == pos_prev2:
                 node1.next, node2.next = node2.next, node1
             else:
-                node1.next, node2.next, prev2.next = node2.next, node1.next,\
-                    node1
+                node1.next, node2.next, prev2.next = node2.next, node1.next, node1
             head = node2
         else:
             if pos_node1 == pos_prev2:
                 prev1.next, node1.next, node2.next = node2, node2.next, node1
             else:
-                prev1.next, node1.next, node2.next, prev2.next = node2,\
-                    node2.next, node1.next, node1
+                prev1.next, node1.next, node2.next, prev2.next = (
+                    node2,
+                    node2.next,
+                    node1.next,
+                    node1,
+                )
 
         return head

@@ -44,27 +44,27 @@ class Solution:
         There exists an O(len(s)) algorithm
         """
 
-        max_string = ''
+        max_string = ""
 
         # the even length case:
         for index in range(0, len(s) - 1):
             if s[index] == s[index + 1]:
                 left = index
                 right = index + 1
-                while left > 0 and right < len(s)-1 and s[left-1] == s[right+1]:
+                while left > 0 and right < len(s) - 1 and s[left - 1] == s[right + 1]:
                     left -= 1
                     right += 1
                 if len(max_string) < right - left + 1:
-                    max_string = s[left:right+1]
+                    max_string = s[left : right + 1]
 
         # the odd length case:
         for index in range(0, len(s)):
             left = index
             right = index
-            while left > 0 and right < len(s)-1 and s[left - 1] == s[right+1]:
+            while left > 0 and right < len(s) - 1 and s[left - 1] == s[right + 1]:
                 left -= 1
                 right += 1
             if len(max_string) < right - left + 1:
-                max_string = s[left:right+1]
+                max_string = s[left : right + 1]
 
         return max_string

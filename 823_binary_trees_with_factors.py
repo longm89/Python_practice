@@ -36,8 +36,8 @@ class Solution:
         If there exist i1 < i such that sorted_arr[i] % sorted_arr[i1] == 0,
             if val2= sorted_arr[i]//sorted_arr[i1] is in dict_nums,
         then they give rise to num_of_trees(i1) * num_of_trees(dict_nums[val2]) trees
-        
-        We could use dynamic programming to calculate num_of_trees(i) where i 
+
+        We could use dynamic programming to calculate num_of_trees(i) where i
         is from 1 to len(sorted_arr)
         The time complexity is O(len(arr)**2)
 
@@ -58,12 +58,14 @@ class Solution:
                 if sorted_arr[i] % sorted_arr[i1] == 0:
                     val2 = sorted_arr[i] // sorted_arr[i1]
                     if val2 in dict_nums:
-                        num_of_trees[i] += num_of_trees[i1] * num_of_trees[dict_nums[val2]]
-        num_of_trees[i] %= 10**9 + 7
+                        num_of_trees[i] += (
+                            num_of_trees[i1] * num_of_trees[dict_nums[val2]]
+                        )
+        num_of_trees[i] %= 10 ** 9 + 7
 
         total_trees = 0
         for num in num_of_trees:
             total_trees += num
-            total_trees %= 10**9 + 7
+            total_trees %= 10 ** 9 + 7
 
         return total_trees
