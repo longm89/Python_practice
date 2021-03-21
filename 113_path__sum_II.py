@@ -18,8 +18,8 @@ class Solution:
 
         """
         We will use BFS to solve this problem.
-        We implement it using a queue. 
-        Each element in the queue is of the form (current_node, total_sum), 
+        We implement it using a queue.
+        Each element in the queue is of the form (current_node, total_sum),
         where total_sum is the sum of the root to the current_node
         To trace the paths, we keep a prev_list, where
         prev_list[i] = j means the previous node of queue[i][0] is queue[j][0]
