@@ -46,15 +46,15 @@ class Solution:
         """
         for type-1 operation, we have
         s = s1 + s2 and a type-1 operation will produce s2 s1
-        given a last_cut_pos = len(s1)-1, and a choice of
+        Given a last_cut_pos = len(s1)-1, and a choice of
         whether the first digit of the new string is 0 or 1,
         we need to calculate the number of flips (type-2)
         that we need to make to turn s2 s1 into alternating.
-        We could calculate the numbef of flips above by first calculating:
+        We could calculate the number of flips above by:
         let num_flips[index][0] = num of flips to make
-        s[index:] alternating with s[index] == "0"
+        s[index:] alternating assuming s[index] == "0"
         let num_flips[index][1] = num of flips to make
-        s[index:] alternating with s[index] == "1"
+        s[index:] alternating assuming s[index] == "1"
         num_flips[index][0] = 0/1 + num_flips[index + 1][1]
         num_flips[index][1] = 0/1 + num_flips[index + 1][0]
 
